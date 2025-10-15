@@ -1,0 +1,165 @@
+{% extends 'filiale/base.html' %}
+{% load static %}
+
+{% block title %}Contatti | Santander Filiale{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 mb-3">Contattaci</h1>
+        <p class="lead">Siamo a tua completa disposizione per informazioni, consulenze e preventivi.</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mb-5">
+
+                <div class="card p-4 border-danger border-2 shadow-sm mb-4">
+                    <h5 class="mb-3 text-danger text-center"><i class="fas fa-clock me-2"></i> Orari di Apertura indicativi</h5>
+                    <div class="ps-md-3">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr {% if giorno_corrente == 'Lunedì' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Lunedì</td>
+                                    <td>09:00 - 17:00</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Martedì' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Martedì</td>
+                                    <td>09:00 - 17:00</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Mercoledì' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Mercoledì</td>
+                                    <td>09:00 - 17:00</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Giovedì' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Giovedì</td>
+                                    <td>09:00 - 17:00</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Venerdì' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Venerdì</td>
+                                    <td>09:00 - 17:00</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Sabato' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Sabato</td>
+                                    <td>Chiuso</td>
+                                </tr>
+                                <tr {% if giorno_corrente == 'Domenica' %}class="text-danger fw-bold"{% endif %}>
+                                    <td>Domenica</td>
+                                    <td>Chiuso</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card p-4 border-0 shadow-sm">
+                    <h2 class="section-title text-start mb-4">Invia la tua richiesta, inserendo i tuoi dati, per essere ricontattato</h2>
+
+                    <form method="post" action="{% url 'filiale:contatti' %}">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.nome.label_tag }}
+                                {{ form.nome }}
+                                {% if form.nome.errors %}<div class="text-danger small mt-1">{{ form.nome.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.cognome.label_tag }}
+                                {{ form.cognome }}
+                                {% if form.cognome.errors %}<div class="text-danger small mt-1">{{ form.cognome.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                                {% if form.email.errors %}<div class="text-danger small mt-1">{{ form.email.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.telefono.label_tag }}
+                                {{ form.telefono }}
+                                {% if form.telefono.errors %}<div class="text-danger small mt-1">{{ form.telefono.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.motivo.label_tag }}
+                            {{ form.motivo }}
+                            {% if form.motivo.errors %}<div class="text-danger small mt-1">{{ form.motivo.errors }}</div>{% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.messaggio.label_tag }}
+                            {{ form.messaggio }}
+                            {% if form.messaggio.errors %}<div class="text-danger small mt-1">{{ form.messaggio.errors }}</div>{% endif %}
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            {{ form.privacy_accettata }}
+                            <label class="form-check-label" for="{{ form.privacy_accettata.id_for_label }}">
+                                {{ form.privacy_accettata.label }}
+                            </label>
+                            {% if form.privacy_accettata.errors %}<div class="text-danger small mt-1">{{ form.privacy_accettata.errors }}</div>{% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-santander btn-lg mt-3 w-100">
+                            <i class="fas fa-paper-plane"></i> Invia Richiesta
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-7 mb-5">
+                <div class="card p-4 border-0 shadow-sm h-100">
+                    <h2 class="h4 mb-3"><i class="fas fa-map-marked-alt text-danger me-2"></i> Posizione Filiale</h2>
+
+                    <div style="height: 100%; min-height: 550px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1409.7115307415572!2d15.08315684787914!3d37.51510410971612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313fcd405295dfd%3A0x9b6d12f2af41d23c!2sVia%20Etnea%2C%20383%2C%2095125%20Catania%20CT!5e0!3m2!1sen!2sit!4v1760430071980!5m2!1sen!2sit" width="100%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        {% if filiale %}
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-4 border-danger border-2 h-100">
+                    <h2 class="h4 mb-3"><i class="fas fa-map-marker-alt text-danger me-2"></i> Dettagli Filiale</h2>
+                    <ul class="list-unstyled contact-info">
+                        <li class="mb-3">
+                            <p class="mb-1 text-muted">Indirizzo</p>
+                            <strong>{{ filiale.indirizzo }}, {{ filiale.cap }} {{ filiale.citta }}</strong>
+                        </li>
+                        <li class="mb-3">
+                            <p class="mb-1 text-muted">Telefono</p>
+                            <a href="tel:{{ filiale.telefono }}" class="d-block">{{ filiale.telefono }}</a>
+                        </li>
+                        <li class="mb-3">
+                            <p class="mb-1 text-muted">Email</p>
+                            <a href="mailto:{{ filiale.email }}" class="d-block">{{ filiale.email }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning mt-4">Informazioni Filiale non disponibili.</div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="py-5 bg-light text-center">
+    <div class="container">
+        <h3 class="mb-3">Cerchi documenti o guide?</h3>
+        <a href="{% url 'filiale:documentazione' %}" class="btn btn-outline-danger btn-lg">
+            <i class="fas fa-file-alt"></i> Vai alla Documentazione
+        </a>
+    </div>
+</section>
+
+{% endblock %}
