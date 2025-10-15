@@ -30,8 +30,6 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    'aedfinsrl.it',
-    'www.aedfinsrl.it',
     'aedfinsrl.onrender.com',
     'localhost',
     '127.0.0.1'
