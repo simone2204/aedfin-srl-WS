@@ -1,84 +1,59 @@
 {% extends 'filiale/base.html' %}
 {% load static %}
 
-{% block title %}Richiedi Preventivo | Santander{% endblock %}
+{% block title %}Richiedi Preventivo{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-light">
-    <div class="container">
-        <h1 class="display-4 mb-3">Richiedi un Preventivo Personalizzato</h1>
-        <p class="lead">Inviaci i dettagli del tuo finanziamento ideale e ti contatteremo con un'offerta su misura.</p>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+            <h1 class="text-danger mb-3">Richiedi un Preventivo Personalizzato</h1>
+            <p class="lead mb-5">Inviaci i dettagli del tuo finanziamento ideale e ti contatteremo con un'offerta su misura. Contattaci subito:</p>
+        </div>
     </div>
-</section>
 
-<section class="py-5">
-    <div class="container">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        {% endif %}
+    <div class="row justify-content-center g-4">
 
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card p-4 shadow-sm h-100">
-                    <h2 class="h4 mb-4 text-danger">I tuoi Parametri Desiderati</h2>
-
-                    <form method="get" action="{% url 'filiale:richiedi_preventivo' %}">
-
-                        <div class="mb-3">
-                            <label for="id_importo" class="form-label">Importo da finanziare (€)</label>
-                            <input type="number" step="100" min="1000" class="form-control" id="id_importo" name="importo" value="{{ request.GET.importo|default:'' }}" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="id_durata" class="form-label">Durata in mesi</label>
-                            <input type="number" step="1" min="6" max="120" class="form-control" id="id_durata" name="durata" value="{{ request.GET.durata|default:'' }}" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="id_rata" class="form-label">Rata mensile desiderata (€)</label>
-                            <input type="number" step="1" min="10" class="form-control" id="id_rata" name="rata" value="{{ request.GET.rata|default:'' }}" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-santander w-100 mt-3">
-                            <i class="fas fa-check"></i> Verifica Dati
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-6 mb-4">
-                <div class="card p-4 shadow-sm h-100 bg-light">
-                    <h2 class="h4 mb-4 text-danger">Riepilogo e Contatto</h2>
-
-                    {% if risultato %}
-                    <p class="lead fw-bold">Riepilogo della richiesta:</p>
-                    <ul class="list-unstyled mb-4 summary-list">
-                        <li><i class="fas fa-money-bill-wave me-2 text-danger"></i> Importo Richiesto: <strong>€{{ risultato.importo|floatformat:0 }}</strong></li>
-                        <li><i class="fas fa-calendar-alt me-2 text-danger"></i> Durata Desiderata: <strong>{{ risultato.durata }} mesi</strong></li>
-                        <li><i class="fas fa-euro-sign me-2 text-danger"></i> Rata Ideale: <strong>€{{ risultato.rata_desiderata|floatformat:2 }}</strong></li>
-                    </ul>
-
-                    <p>Per completare la richiesta di preventivo, contatta la nostra filiale:</p>
-                    <a href="{% url 'filiale:contatti' %}?importo={{ risultato.importo|default:'' }}&durata={{ risultato.durata|default:'' }}&rata={{ risultato.rata_desiderata|default:'' }}" class="btn btn-danger btn-lg w-100">
-                        <i class="fas fa-paper-plane me-2"></i> Invia la Richiesta di Contatto
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-envelope fa-3x text-danger mb-3"></i>
+                    <h5 class="card-title">Email</h5>
+                    <p class="card-text text-muted">Scrivici per inviare i dettagli del tuo progetto.</p>
+                    <a href="mailto:aedfinsrl@gmail.com" class="btn btn-outline-danger mt-2">
+                        aedfinsrl@gmail.com
                     </a>
-
-                    {% else %}
-                    <div class="text-center py-5">
-                        <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
-                        <p class="lead">Inserisci i parametri nel modulo a sinistra per visualizzare il riepilogo e procedere.</p>
-                    </div>
-                    {% endif %}
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-phone-alt fa-3x text-danger mb-3"></i>
+                    <h5 class="card-title">Chiamaci</h5>
+                    <p class="card-text text-muted">Contattaci subito per parlare con un consulente.</p>
+
+                    <span class="btn mt-2 disabled" style="background-color: #fe0000;border-color: #E74C3C; color: white;">
+                        <strong>+39 375 915 5500</strong>
+                    </span>
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fab fa-whatsapp fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">WhatsApp</h5>
+                    <p class="card-text text-muted">Scrivici su WhatsApp per una risposta rapida.</p>
+                    <a href="https://wa.me/+393759155500" target="_blank" class="btn btn-outline-success mt-2">
+                        Manda un Messaggio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
 {% endblock %}
