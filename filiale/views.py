@@ -241,13 +241,11 @@ FASCE_DISPLAY = {
 
 
 def prenota_appuntamento(request):
-    try:
-        locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
-    except locale.Error:
-        try:
-            locale.setlocale(locale.LC_ALL, 'it_IT')
-        except locale.Error:
-            pass
+
+    GIORNI_IT = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica']
+    MESI_IT = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto",
+        "Settembre", "Ottobre", "Novembre", "Dicembre"
+    ]
 
     oggi = timezone.localdate()
     giorni_disponibili = {}
@@ -271,7 +269,7 @@ def prenota_appuntamento(request):
     else:
         # Altrimenti, si parte da OGGI
         start_date = oggi
-    # 🌟 FINE MODIFICA start_date 🌟
+
 
     # 🌟 MODIFICA CHIAVE: AUMENTA IL RANGE 🌟
     # Iteriamo su 12 giorni per coprire i rimanenti della settimana corrente + i 5 giorni della prossima.
@@ -287,8 +285,9 @@ def prenota_appuntamento(request):
             continue
 
         # Nome del giorno in italiano
-        nome_giorno = calendar.day_name[giorno.weekday()].capitalize()
-        display_giorno_completo = f"{nome_giorno} {giorno.strftime('%d %B %Y')}"
+        nome_giorno = GIORNI_IT[giorno.weekday()]
+        nome_mese = MESI_IT[giorno.month - 1]
+        display_giorno_completo = f"{nome_giorno} {giorno.day} {nome_mese} {giorno.year}"
 
         # Recupera gli orari già prenotati per quel giorno
         appuntamenti_prenotati = Appuntamento.objects.filter(giorno=giorno).values_list('ora', flat=True)
@@ -327,6 +326,9 @@ def prenota_appuntamento(request):
         # Conversione dei dati in oggetti Python
         giorno_obj = date.fromisoformat(giorno_str)
         ora_obj = time.fromisoformat(ora_str)
+
+        nome_giorno = GIORNI_IT[giorno_obj.weekday()]
+        nome_mese = MESI_IT[giorno_obj.month - 1]
 
         # Veloce ricontrollo di disponibilità per evitare race condition
         if Appuntamento.objects.filter(giorno=giorno_obj, ora=ora_obj).exists():
@@ -404,14 +406,14 @@ def prenota_appuntamento(request):
             giorno_obj = date.fromisoformat(giorno_selezionato)
             ora_obj = time.fromisoformat(ora_selezionata)
 
+            nome_giorno = GIORNI_IT[giorno_obj.weekday()]
+            nome_mese = MESI_IT[giorno_obj.month - 1]
+            display_giorno_completo = f"{nome_giorno} {giorno_obj.day} {nome_mese} {giorno_obj.year}"
+
             # Re-verifica rapida di disponibilità
             if Appuntamento.objects.filter(giorno=giorno_obj, ora=ora_obj).exists():
                 messages.error(request, "L'orario selezionato non è più disponibile. Scegli un altro slot.")
                 return redirect('filiale:prenota_appuntamento')
-
-            nome_giorno = calendar.day_name[giorno_obj.weekday()].capitalize()
-            # 2. Formatta la data completa in italiano (giorno, mese, anno - usiamo l'anno per completezza)
-            display_giorno_completo = f"{nome_giorno} {giorno_obj.strftime('%d %B %Y')}"
 
             context = {
                 'form': DatiClienteAppuntamentoForm(),
