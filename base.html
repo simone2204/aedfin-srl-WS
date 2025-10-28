@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Filiale di Catania - Finanziamenti e Prestiti{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    {% block extra_css %}{% endblock %}
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top py-4">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+               <div class="d-flex align-items-center mb-1">
+                    <i class="fas fa-university me-2"></i>
+                    <strong>A&D FIN SRL</strong>
+                </div>
+                <small class="d-block" style="font-size: 0.75rem; line-height: 1;">
+                    <br><strong>OAM n°A7968 Agente in attività finanziaria <br><br>
+                    <img src="{{ url_for('static', filename='/static/img/logo_ST.jpg') }}" alt="Logo Santander Filiale" style="height: 25px; margin-right: 5px; border-radius: 50%; vertical-align: middle;">
+                    Santander Consumer Bank</strong>
+                </small>
+               </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse w-100" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}" style="color: #FFFFFF"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('servizi') }}" style="color: #FFFFFF"><strong>Servizi</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('richiedi_preventivo') }}" style="color: #FFFFFF"><strong>Richiedi Preventivo</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('prenota_appuntamento') }}" style="color: #FFFFFF"><strong>Prenota Appuntamento</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('chi_siamo') }}" style="color: #FFFFFF"><strong>Chi Siamo</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contatti') }}" style="color: #FFFFFF"><strong>Dove Siamo</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer mt-5 bg-dark text-white pt-4 pb-2">
+    <div class="container">
+            <div class="row d-flex flex-wrap justify-content-between">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+
+                    <p class="mt-1"><strong>A&D FIN SRL OAM n°A7968</strong><br><strong>Agente in attività finanziaria</strong><br>
+                        <img src="{{ url_for('static', filename='img/logo_ST.jpg') }}" alt="Logo Santander Filiale" style="height: 23px; border-radius: 50%;">
+                        <strong>Santander Consumer Bank</strong></p>
+                    <h6>P.IVA: 03524760877</h6>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <h5>Link Utili</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="{{ url_for('servizi') }}" class="text-white text-decoration-none">I Nostri Servizi</a></li>
+                        <li><a href="{{ url_for('richiedi_preventivo') }}" class="text-white text-decoration-none">Richiedi Preventivo</a></li>
+                        <li><a href="{{ url_for('chi_siamo') }}" class="text-white text-decoration-none">Chi Siamo</a></li>
+                        <li><a href="{{ url_for('contatti') }}" class="text-white text-decoration-none">Contattaci</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <h5>Contatti</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-phone"></i> +39 375 915 5500</li>
+                        <li><i class="fab fa-whatsapp"></i> +39 375 915 5500</li>
+                        <li><i class="fas fa-phone"></i> Ufficio: 095 503132</li>
+                        <li><i class="fas fa-envelope"></i> aedfinsrl@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Via Etnea 383, Catania</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p>&copy; 2025 A&DFIN SRL. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

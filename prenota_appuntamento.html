@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Prenota il tuo Appuntamento{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+            <h1 class="text-danger mb-3">Prenota un Appuntamento</h1>
+            <p class="lead mb-5">Contattaci subito per fissare un incontro nella nostra filiale e ricevere una consulenza personalizzata:</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-phone-alt fa-3x text-danger mb-3"></i> 
+                    <h5 class="card-title">Chiamaci per Prenotare</h5>
+                    <p class="card-text text-muted">Contattaci per verificare la disponibilità e fissare l'orario.</p>
+
+                    <span class="btn mt-2 disabled" style="background-color: #fe0000;border-color: #E74C3C; color: white;">
+                        <strong>+39 375 915 5500</strong>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fab fa-whatsapp fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">WhatsApp per Fissare</h5>
+                    <p class="card-text text-muted">Inviaci un messaggio per richiedere un orario comodo.</p>
+                    <a href="https://wa.me/+393759155500" target="_blank" class="btn btn-outline-success mt-2">
+                        Manda un Messaggio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Chi Siamo - La Nostra Filiale{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4 mb-3 text-danger">Agente in attività finanziaria OAM n°A7968</h1>
+        <p class="lead">Passione, trasparenza e soluzioni finanziarie su misura per i tuoi progetti.</p>
+    </div>
+</section>
+
+<hr>
+
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="section-title py-3">I Nostri Valori</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-handshake fa-3x text-danger mb-3"></i>
+                <h5>Trasparenza</h5>
+                <p class="text-muted">Chiarezza totale sui tassi e sui termini contrattuali.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-users fa-3x text-danger mb-3"></i>
+                <h5>Clienti al Centro</h5>
+                <p class="text-muted">Soluzioni personalizzate in base alle tue specifiche esigenze.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
+                <h5>Affidabilità</h5>
+                <p class="text-muted">Un partner finanziario solido e sicuro per il tuo futuro.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card p-4 border-danger border-2 shadow-sm">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <h3 class="mb-3 text-danger text-center"><i class="fas fa-clock me-2"></i> Orari di Apertura indicativi</h3>
+
+                            <div class="ps-md-3">
+                                <table class="table table-sm table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-bold">Lunedì</td>
+                                            <td>09:00 - 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Martedì</td>
+                                            <td>09:00 - 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Mercoledì</td>
+                                            <td>09:00 - 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Giovedì</td>
+                                            <td>09:00 - 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Venerdì</td>
+                                            <td>09:00 - 17:00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Sabato</td>
+                                            <td>Chiuso</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Domenica</td>
+                                            <td>Chiuso</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{ url_for('contatti') }}" class="btn btn-danger btn-lg">
+                <i class="fas fa-envelope"></i> Contattaci Subito
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
