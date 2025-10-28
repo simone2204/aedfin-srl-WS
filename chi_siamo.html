@@ -1,97 +1,186 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - La Nostra Filiale</title>
 
-{% block title %}Chi Siamo - La Nostra Filiale{% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-{% block content %}
-<section class="py-5 bg-light">
-    <div class="container">
-        <h1 class="display-4 mb-3 text-danger">Agente in attività finanziaria OAM n°A7968</h1>
-        <p class="lead">Passione, trasparenza e soluzioni finanziarie su misura per i tuoi progetti.</p>
-    </div>
-</section>
+    <link rel="stylesheet" href="static/css/style.css">
 
-<hr>
+</head>
+<body>
 
-<section class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="section-title py-3">I Nostri Valori</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-handshake fa-3x text-danger mb-3"></i>
-                <h5>Trasparenza</h5>
-                <p class="text-muted">Chiarezza totale sui tassi e sui termini contrattuali.</p>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-users fa-3x text-danger mb-3"></i>
-                <h5>Clienti al Centro</h5>
-                <p class="text-muted">Soluzioni personalizzate in base alle tue specifiche esigenze.</p>
-            </div>
-            <div class="col-md-4 mb-4">
-                <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
-                <h5>Affidabilità</h5>
-                <p class="text-muted">Un partner finanziario solido e sicuro per il tuo futuro.</p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top py-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+               <div class="d-flex align-items-center mb-1">
+                    <i class="fas fa-university me-2"></i>
+                    <strong>A&D FIN SRL</strong>
+                </div>
+                <small class="d-block" style="font-size: 0.75rem; line-height: 1;">
+                    <br><strong>OAM n°A7968 Agente in attività finanziaria <br><br>
+                    <img src="static/img/logo_ST.jpg" alt="Logo Santander Filiale" style="height: 25px; margin-right: 5px; border-radius: 50%; vertical-align: middle;">
+                    Santander Consumer Bank</strong>
+                </small>
+               </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse w-100" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="color: #FFFFFF"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servizi.html" style="color: #FFFFFF"><strong>Servizi</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="richiedi_preventivo.html" style="color: #FFFFFF"><strong>Richiedi Preventivo</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prenota_appuntamento.html" style="color: #FFFFFF"><strong>Prenota Appuntamento</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chi_siamo.html" style="color: #FFFFFF"><strong>Chi Siamo</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contatti.html" style="color: #FFFFFF"><strong>Dove Siamo</strong></a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h1 class="display-4 mb-3 text-danger">Agente in attività finanziaria OAM n°A7968</h1>
+            <p class="lead">Passione, trasparenza e soluzioni finanziarie su misura per i tuoi progetti.</p>
+        </div>
+    </section>
 
-<hr>
+    <hr>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="section-title py-3">I Nostri Valori</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-handshake fa-3x text-danger mb-3"></i>
+                    <h5>Trasparenza</h5>
+                    <p class="text-muted">Chiarezza totale sui tassi e sui termini contrattuali.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-users fa-3x text-danger mb-3"></i>
+                    <h5>Clienti al Centro</h5>
+                    <p class="text-muted">Soluzioni personalizzate in base alle tue specifiche esigenze.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
+                    <h5>Affidabilità</h5>
+                    <p class="text-muted">Un partner finanziario solido e sicuro per il tuo futuro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card p-4 border-danger border-2 shadow-sm">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <h3 class="mb-3 text-danger text-center"><i class="fas fa-clock me-2"></i> Orari di Apertura indicativi</h3>
+    <hr>
 
-                            <div class="ps-md-3">
-                                <table class="table table-sm table-borderless">
-                                    <tbody>
-                                        <tr>
-                                            <td class="fw-bold">Lunedì</td>
-                                            <td>09:00 - 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Martedì</td>
-                                            <td>09:00 - 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Mercoledì</td>
-                                            <td>09:00 - 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Giovedì</td>
-                                            <td>09:00 - 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Venerdì</td>
-                                            <td>09:00 - 17:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Sabato</td>
-                                            <td>Chiuso</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Domenica</td>
-                                            <td>Chiuso</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+
+                    <div class="card p-4 border-danger border-2 shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <h3 class="mb-3 text-danger text-center"><i class="fas fa-clock me-2"></i> Orari di Apertura indicativi</h3>
+
+                                <div class="ps-md-3">
+                                    <table class="table table-sm table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold">Lunedì</td>
+                                                <td>09:00 - 17:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Martedì</td>
+                                                <td>09:00 - 17:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Mercoledì</td>
+                                                <td>09:00 - 17:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Giovedì</td>
+                                                <td>09:00 - 17:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Venerdì</td>
+                                                <td>09:00 - 17:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Sabato</td>
+                                                <td>Chiuso</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Domenica</td>
+                                                <td>Chiuso</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="contatti.html" class="btn btn-danger btn-lg">
+                    <i class="fas fa-envelope"></i> Contattaci Subito
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer mt-5 bg-dark text-white pt-4 pb-2">
+        <div class="container">
+                <div class="row d-flex flex-wrap justify-content-between">
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+
+                        <p class="mt-1"><strong>A&D FIN SRL OAM n°A7968</strong><br><strong>Agente in attività finanziaria</strong><br>
+                            <img src="static/img/logo_ST.jpg" alt="Logo Santander Filiale" style="height: 23px; border-radius: 50%;">
+                            <strong>Santander Consumer Bank</strong></p>
+                        <h6>P.IVA: 03524760877</h6>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5>Link Utili</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><a href="servizi.html" class="text-white text-decoration-none">I Nostri Servizi</a></li>
+                            <li><a href="richiedi_preventivo.html" class="text-white text-decoration-none">Richiedi Preventivo</a></li>
+                            <li><a href="chi_siamo.html" class="text-white text-decoration-none">Chi Siamo</a></li>
+                            <li><a href="contatti.html" class="text-white text-decoration-none">Contattaci</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5>Contatti</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="fas fa-phone"></i> +39 375 915 5500</li>
+                            <li><i class="fab fa-whatsapp"></i> +39 375 915 5500</li>
+                            <li><i class="fas fa-phone"></i> Ufficio: 095 503132</li>
+                            <li><i class="fas fa-envelope"></i> aedfinsrl@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Via Etnea 383, Catania</li>
+                        </ul>
+                    </div>
                 </div>
-        </div>
-        <div class="text-center mt-5">
-            <a href="{{ url_for('contatti') }}" class="btn btn-danger btn-lg">
-                <i class="fas fa-envelope"></i> Contattaci Subito
-            </a>
-        </div>
-    </div>
-</section>
-{% endblock %}
+                <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+                <div class="text-center">
+                    <p>© 2025 A&DFIN SRL. Tutti i diritti riservati.</p>
+                </div>
+            </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
